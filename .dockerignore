@@ -7,12 +7,12 @@ __pycache__/
 *.log
 *.tar.gz
 *.zip
+# *.pth  <-- Commented out to allow model files
 *.mp4
 *.pdf
 *.h5
 *.tflite
 *.onnx
-*.pth
 .env
 venv/
 .idea/
