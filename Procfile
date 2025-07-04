@@ -1,1 +1,1 @@
-web: gunicorn MLcode:app
+gunicorn app:app
