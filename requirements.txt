@@ -4,5 +4,4 @@ torchvision
 Pillow
 pdfplumber
 groq
-tensorflow
 python-dotenv
