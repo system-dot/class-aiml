@@ -7,3 +7,4 @@ Pillow
 pdfplumber
 groq
 python-dotenv
+gunicorn
