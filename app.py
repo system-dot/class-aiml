@@ -59,15 +59,32 @@ classroom_model.fc = torch.nn.Sequential(
     torch.nn.Softmax(dim=1)
 )
 
-classroom_model.load_state_dict(torch.load("classroom_activity_model.pth"))
+# classroom_model.load_state_dict(torch.load("classroom_activity_model.pth"))
+# classroom_model = classroom_model.to(device)
+# classroom_model.eval()
+
+# # Parameters for second model
+# model_path = "impairment_detection_model.pth"
+# impairment_model = models.resnet18()
+# impairment_model.fc = torch.nn.Linear(impairment_model.fc.in_features, 4)  # Adjust for 4 classes
+# impairment_model.load_state_dict(torch.load(model_path, map_location=device))
+# impairment_model = impairment_model.to(device)
+# impairment_model.eval()
+
+# Get the directory where the current script is located
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Load first model (classroom activity)
+classroom_model_path = os.path.join(BASE_DIR, "classroom_activity_model.pth")
+classroom_model.load_state_dict(torch.load(classroom_model_path, map_location=device))
 classroom_model = classroom_model.to(device)
 classroom_model.eval()
 
-# Parameters for second model
-model_path = "impairment_detection_model.pth"
+# Load second model (impairment detection)
+impairment_model_path = os.path.join(BASE_DIR, "impairment_detection_model.pth")
 impairment_model = models.resnet18()
 impairment_model.fc = torch.nn.Linear(impairment_model.fc.in_features, 4)  # Adjust for 4 classes
-impairment_model.load_state_dict(torch.load(model_path, map_location=device))
+impairment_model.load_state_dict(torch.load(impairment_model_path, map_location=device))
 impairment_model = impairment_model.to(device)
 impairment_model.eval()
 
