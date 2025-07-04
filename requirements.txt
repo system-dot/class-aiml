@@ -8,3 +8,5 @@ pdfplumber
 groq
 python-dotenv
 gunicorn
+numpy<2
+tensorflow 
